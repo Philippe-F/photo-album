@@ -15,6 +15,7 @@ header {
   align-items: center;
   height: 65px;
   background-color: rgb(187, 216, 255);
+  color: rgb(1, 1, 109);
 }
 
 main {
@@ -37,4 +38,37 @@ main .index {
 main .index .item {
   padding: 10px;
   cursor: pointer;
+}
+
+main .index .item:hover {
+  opacity: 0.5;
+}
+
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages button {
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #ee0000;
+  margin: 5px;
+  transition: 0.4s;
+  color: white;
+  font-size: 20px;
+}
+
+.pages button:hover {
+  background-color: #4493ee;
+}
+
+.pages button.active {
+  background-color: #4493ee;
 }

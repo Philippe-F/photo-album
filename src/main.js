@@ -11,6 +11,7 @@ const req = new Request(uri, {
 });
 
 const indexElement = document.getElementById('index');
+const pageElement = document.getElementById('numbers');
 let currentPage = 1;
 let elementNum = 10;
 
@@ -32,10 +33,40 @@ function photoList(items, wrapper, elementNum, page) {
   };
 };
 
+function paginateItems(items, wrapper, elementsPerPage) {
+  wrapper.innerHTML = '';
+  const pageCount = Math.ceil(items.length / elementsPerPage);
+
+  for (let i = 1; i < pageCount + 1; i++) {
+    let button = pageButton(i, items);
+    wrapper.appendChild(button);
+  };
+};
+
+function pageButton(page, items) {
+  const btn = document.createElement('button');
+  btn.innerText = page;
+
+  if (currentPage == page) btn.classList.add('active');
+
+  btn.addEventListener('click', function() {
+    currentPage = page;
+    photoList(items, indexElement, elementNum, currentPage);
+
+    const currentBtn = document.querySelector('.pages button.active');
+    currentBtn.classList.remove('active');
+
+    btn.classList.add('active');
+  });
+
+  return btn;
+};
+
 fetch(req)
   .then(res => res.json())
   .then(json => {
     const photoArr = json.photos;
-    photoList(photoArr, indexElement, elementNum, currentPage)
+    photoList(photoArr, indexElement, elementNum, currentPage),
+    paginateItems(photoArr, pageElement, elementNum)
   })
   .catch(err => console.log(err));
