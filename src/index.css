@@ -17,6 +17,12 @@ header {
   background-color: rgb(187, 216, 255);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main .index {
   display: flex;
   flex-wrap: wrap;
@@ -28,3 +34,7 @@ main .index {
   margin-top: 25px;
 }
 
+main .index .item {
+  padding: 10px;
+  cursor: pointer;
+}
