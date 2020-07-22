@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' type='text/css' media='screen' href='/src/index.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/src/modal.css'>
   <link rel='icon' type='image/png' href='/public/favicon.png'>
   <title>Photo Album</title>
 </head>
@@ -12,6 +13,12 @@
   </header>
   <main>
     <div class="index" id="index"></div>
+
+    <div id="modalObj" class="modal">
+      <span class="closeModal">&Chi;</span>
+      <img class="modalElement" id="element">
+    </div>
+
     <div class="pages" id="numbers"></div>
   </main>
   <script type="module" src="/src/main.js"></script>

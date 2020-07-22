@@ -26,8 +26,21 @@ function photoList(items, wrapper, elementNum, page) {
   for (let i = 0; i < pageItems.length; i++) {
     let item = pageItems[i].src.tiny;
     const itemElement = document.createElement('div');
+    const modal = document.getElementById('modalObj');
+    const modalImg = document.getElementById('element');
+    const close = document.getElementsByClassName('closeModal')[0];
+    
     itemElement.classList.add('item');
     itemElement.innerHTML = `<img src=${item} />`; 
+
+    itemElement.onclick = function () {
+      modal.style.display = 'block';
+      modalImg.src = item;
+    };
+
+    close.onclick = function () {
+      modal.style.display = 'none';
+    };
 
     wrapper.appendChild(itemElement);
   };
